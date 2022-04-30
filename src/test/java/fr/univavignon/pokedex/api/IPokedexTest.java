@@ -23,7 +23,6 @@ public class IPokedexTest extends TestCase {
 
     @BeforeEach
     public void setUp() {
-        int cpt = 0;
         when(iPokedex.addPokemon(any(Pokemon.class))).then(new Answer<Integer>() {
             @Override
             public Integer answer(InvocationOnMock invocationOnMock) throws Throwable {

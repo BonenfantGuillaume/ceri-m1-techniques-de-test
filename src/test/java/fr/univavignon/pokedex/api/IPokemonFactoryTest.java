@@ -47,13 +47,13 @@ public class IPokemonFactoryTest extends TestCase {
     @Test
     public void testGetIvBulbizarre() {
         Pokemon pokemon = iPokemonFactory.createPokemon(0, 613, 64, 4000, 4);
-        assertEquals(56, pokemon.getIv());
+        assertEquals((double) 56, pokemon.getIv());
     }
 
     @Test
     public void testGetCpAquali() {
         Pokemon pokemon = iPokemonFactory.createPokemon(133, 2729, 202, 5000, 4);
-        assertEquals(613, pokemon.getCp());
+        assertEquals(2729, pokemon.getCp());
     }
 
     @Test
@@ -77,6 +77,6 @@ public class IPokemonFactoryTest extends TestCase {
     @Test
     public void testGetIvAquali() {
         Pokemon pokemon = iPokemonFactory.createPokemon(133, 2729, 202, 5000, 4);
-        assertEquals(100, pokemon.getIv());
+        assertEquals((double) 100, pokemon.getIv());
     }
 }
