@@ -31,12 +31,14 @@ public class IPokedexTest extends TestCase {
                 return pokemons.size() - 1;
             }
         });
+
         when(iPokedex.size()).then(new Answer<Integer>() {
             @Override
             public Integer answer(InvocationOnMock invocationOnMock) throws Throwable {
                 return pokemons.size();
             }
         });
+
         try {
             when(iPokedex.getPokemon(any(Integer.class))).then(new Answer<Pokemon>() {
                 @Override
@@ -47,6 +49,14 @@ public class IPokedexTest extends TestCase {
         } catch (PokedexException e) {
             e.printStackTrace();
         }
+
+        when(iPokedex.getPokemons()).then(new Answer<List<Pokemon>>() {
+            @Override
+            public List<Pokemon> answer(InvocationOnMock invocationOnMock) throws Throwable {
+                return pokemons;
+            }
+        });
+
     }
 
 
@@ -98,12 +108,19 @@ public class IPokedexTest extends TestCase {
         }
     }
 
-
-/*    @Test
+    @Test
     public void testGetPokemons() {
+        iPokedex.addPokemon(bulbizarre);
+        iPokedex.addPokemon(aquali);
+        iPokedex.addPokemon(bulbizarre);
+        ArrayList<Pokemon> pokemonsCopyPasta = new ArrayList<Pokemon>();
+        pokemonsCopyPasta.add(bulbizarre);
+        pokemonsCopyPasta.add(aquali);
+        pokemonsCopyPasta.add(bulbizarre);
+        assertEquals(pokemonsCopyPasta, iPokedex.getPokemons());
     }
 
-    @Test
+/*    @Test
     public void testTestGetPokemons() {
     }*/
 }
