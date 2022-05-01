@@ -54,10 +54,7 @@ public class IPokedexTest extends TestCase {
                 return pokemons;
             }
         });
-
     }
-
-
 
 
     @Test

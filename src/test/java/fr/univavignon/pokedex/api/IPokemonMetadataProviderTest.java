@@ -1,7 +1,6 @@
 package fr.univavignon.pokedex.api;
 
 import junit.framework.TestCase;
-import org.junit.Before;
 import org.junit.Test;
 import org.junit.jupiter.api.BeforeEach;
 
@@ -12,7 +11,7 @@ public class IPokemonMetadataProviderTest extends TestCase {
 
     IPokemonMetadataProvider iPokemonMetadataProvider = mock(IPokemonMetadataProvider.class);
 
-    @Before
+    @BeforeEach
     public void setUp() {
         try {
             when(iPokemonMetadataProvider.getPokemonMetadata(0)).thenReturn(new PokemonMetadata(0, "Bulbizarre", 126, 126, 90));
