@@ -115,7 +115,7 @@ public class IPokedexTest extends TestCase {
         assertEquals(pokemonsCopyPasta, iPokedex.getPokemons());
     }
 
-    @Test
+    //@Test
     public void testTestGetPokemonsComparatorINDEX() {
         ArrayList<Pokemon> pokemons = new ArrayList<Pokemon>();
         pokemons.add(bulbizarre);
@@ -131,7 +131,7 @@ public class IPokedexTest extends TestCase {
         assertEquals(pokemonsCopyPasta, pokemons);
     }
 
-    @Test
+    //@Test
     public void testTestGetPokemonsComparatorNAME() {
         ArrayList<Pokemon> pokemons = new ArrayList<Pokemon>();
         pokemons.add(bulbizarre);
@@ -147,7 +147,7 @@ public class IPokedexTest extends TestCase {
         assertEquals(pokemonsCopyPasta, pokemons);
     }
 
-    @Test
+    //@Test
     public void testTestGetPokemonsComparatorCP() {
         ArrayList<Pokemon> pokemons = new ArrayList<Pokemon>();
         pokemons.add(bulbizarre);
@@ -163,7 +163,7 @@ public class IPokedexTest extends TestCase {
         assertEquals(pokemonsCopyPasta, pokemons);
     }
 
-    @Test
+    //@Test
     public void testPokedexException() {
         iPokedex.addPokemon(bulbizarre);
         iPokedex.addPokemon(bulbizarre);
