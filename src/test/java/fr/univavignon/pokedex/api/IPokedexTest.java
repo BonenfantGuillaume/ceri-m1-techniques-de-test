@@ -10,6 +10,7 @@ import org.mockito.stubbing.Answer;
 import java.lang.reflect.Array;
 import java.util.*;
 
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
@@ -160,5 +161,27 @@ public class IPokedexTest extends TestCase {
 
         pokemons.sort(PokemonComparators.CP); //Deuxième façon de trier
         assertEquals(pokemonsCopyPasta, pokemons);
+    }
+
+    @Test
+    public void testPokedexException() {
+        iPokedex.addPokemon(bulbizarre);
+        iPokedex.addPokemon(bulbizarre);
+
+        try {
+            when(iPokedex.getPokemon(1)).thenThrow(new PokedexException("yolo"));
+        } catch (PokedexException e) {
+            e.printStackTrace();
+        }
+
+        PokedexException pokedexException = assertThrows(PokedexException.class, () -> {
+            iPokedex.getPokemon(1);
+        });
+
+        try {
+            assertEquals("yolo", iPokedex.getPokemon(1));
+        } catch (PokedexException e) {
+            e.printStackTrace();
+        }
     }
 }
