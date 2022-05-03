@@ -122,4 +122,13 @@ public class IPokemonMetadataProviderTest extends TestCase {
             e.printStackTrace();
         }
     }
+
+    @Test
+    public void testGetPokemonMetadataException() {
+        try {
+            assertEquals("Pokemon non découvert", iPokemonMetadataProvider.getPokemonMetadata(3));
+        } catch (PokedexException e) {
+            e.printStackTrace();
+        }
+    }
 }

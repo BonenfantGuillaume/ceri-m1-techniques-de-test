@@ -20,7 +20,7 @@ public class IPokedexTest extends TestCase {
     IPokedex iPokedex = new Pokedex(new PokemonFactory(new PokemonMetadataProvider()), new PokemonMetadataProvider());
     Pokemon bulbizarre = new Pokemon(0, "Bulbizarre", 126, 126, 90, 613, 64, 4000, 4, 56);
     Pokemon aquali = new Pokemon(133, "Aquali", 186, 168, 260, 2729, 202, 5000, 4, 100);
-    ArrayList<Pokemon> pokemons = new ArrayList<Pokemon>();
+    //ArrayList<Pokemon> pokemons = new ArrayList<Pokemon>();
 
     /*@BeforeEach
     public void setUp() {
@@ -182,5 +182,47 @@ public class IPokedexTest extends TestCase {
         } catch (PokedexException e) {
             e.printStackTrace();
         }
+    }
+
+    @Test
+    public void testCreatePokemonName() {
+        iPokedex.addPokemon(iPokedex.createPokemon(0, 613, 64, 4000, 4));
+        try {
+            assertEquals(bulbizarre.getName(), iPokedex.getPokemon(0).getName());
+        } catch (PokedexException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Test
+    public void testCreatePokemonCP() {
+        iPokedex.addPokemon(iPokedex.createPokemon(0, 613, 64, 4000, 4));
+        try {
+            assertEquals(bulbizarre.getCp(), iPokedex.getPokemon(0).getCp());
+        } catch (PokedexException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Test
+    public void testGetPokemonMetadata() {
+        try {
+            PokemonMetadata pokemonMetadata = iPokedex.getPokemonMetadata(0);
+            assertEquals(pokemonMetadata.getAttack(), bulbizarre.getAttack());
+        } catch (PokedexException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Test
+    public void testGetPokemonsComparator() {
+        ArrayList<Pokemon> pokemons = new ArrayList<Pokemon>();
+        pokemons.add(aquali);
+        pokemons.add(bulbizarre);
+        pokemons.add(bulbizarre);
+        iPokedex.addPokemon(bulbizarre);
+        iPokedex.addPokemon(bulbizarre);
+        iPokedex.addPokemon(aquali);
+        assertEquals(pokemons, iPokedex.getPokemons(PokemonComparators.NAME));
     }
 }
