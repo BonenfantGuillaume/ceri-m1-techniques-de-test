@@ -1,14 +1,12 @@
 package fr.univavignon.pokedex.api;
 
-import java.util.HashMap;
-import java.util.Map;
 import java.util.Random;
 
 public class PokemonFactory implements IPokemonFactory {
-    PokemonMetadataProvider pokemonMetadataProvider;
+    IPokemonMetadataProvider iPokemonMetadataProvider;
 
-    public PokemonFactory(PokemonMetadataProvider pokemonMetadataProviderCopy) {
-        pokemonMetadataProvider = pokemonMetadataProviderCopy;
+    public PokemonFactory(IPokemonMetadataProvider iPokemonMetadataProviderCopy) {
+        iPokemonMetadataProvider = iPokemonMetadataProviderCopy;
     }
 
     @Override
@@ -16,7 +14,7 @@ public class PokemonFactory implements IPokemonFactory {
     {
         PokemonMetadata pokemonMetadata = null;
         try {
-            pokemonMetadata = pokemonMetadataProvider.getPokemonMetadata(index);
+            pokemonMetadata = iPokemonMetadataProvider.getPokemonMetadata(index);
         } catch (PokedexException e) {
             e.printStackTrace();
         }

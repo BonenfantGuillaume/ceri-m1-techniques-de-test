@@ -80,4 +80,22 @@ public class IPokemonFactoryTest extends TestCase {
         Pokemon pokemon = iPokemonFactory.createPokemon(133, 2729, 202, 5000, 4);
         assertTrue(pokemon.getIv() >= 0 || pokemon.getIv() <= 100);
     }
+
+    @Test
+    public void testGetAttackBulbizarre() {
+        Pokemon pokemon = iPokemonFactory.createPokemon(0, 2729, 202, 5000, 4);
+        assertTrue(pokemon.getAttack() >= bulbizarre.getAttack() || pokemon.getAttack() <= bulbizarre.getAttack() + 15);
+    }
+
+    @Test
+    public void testGetDefenseBulbizarre() {
+        Pokemon pokemon = iPokemonFactory.createPokemon(0, 2729, 202, 5000, 4);
+        assertTrue(pokemon.getDefense() >= bulbizarre.getDefense() || pokemon.getDefense() <= bulbizarre.getDefense() + 15);
+    }
+
+    @Test
+    public void testGetStaminaBulbizarre() {
+        Pokemon pokemon = iPokemonFactory.createPokemon(0, 2729, 202, 5000, 4);
+        assertTrue(pokemon.getStamina() >= bulbizarre.getStamina() || pokemon.getStamina() <= bulbizarre.getStamina() + 15);
+    }
 }
