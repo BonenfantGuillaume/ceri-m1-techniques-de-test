@@ -5,18 +5,21 @@ import java.util.Map;
 import java.util.Random;
 
 public class PokemonFactory implements IPokemonFactory {
-    Map<Integer, PokemonMetadata> pokemonsMetadata = new HashMap<Integer, PokemonMetadata>();
+    PokemonMetadataProvider pokemonMetadataProvider;
 
-    public PokemonFactory() {
-        pokemonsMetadata.put(0, new PokemonMetadata(0,  "Bulbizarre", 126, 126, 90));
-        pokemonsMetadata.put(133, new PokemonMetadata(133, "Aquali", 186, 168, 260));
-        //TODO : Gotta map them all !
+    public PokemonFactory(PokemonMetadataProvider pokemonMetadataProviderCopy) {
+        pokemonMetadataProvider = pokemonMetadataProviderCopy;
     }
 
     @Override
     public Pokemon createPokemon(int index, int cp, int hp, int dust, int candy)
     {
-        PokemonMetadata pokemonMetadata = pokemonsMetadata.get(0);
+        PokemonMetadata pokemonMetadata = null;
+        try {
+            pokemonMetadata = pokemonMetadataProvider.getPokemonMetadata(index);
+        } catch (PokedexException e) {
+            e.printStackTrace();
+        }
         Random rand = new Random();
 
         int randAtk = rand.nextInt(16);

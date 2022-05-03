@@ -16,12 +16,13 @@ import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
 public class IPokedexTest extends TestCase {
-    IPokedex iPokedex = mock(IPokedex.class);
+    //IPokedex iPokedex = mock(IPokedex.class);
+    IPokedex iPokedex = new Pokedex();
     Pokemon bulbizarre = new Pokemon(0, "Bulbizarre", 126, 126, 90, 613, 64, 4000, 4, 56);
     Pokemon aquali = new Pokemon(133, "Aquali", 186, 168, 260, 2729, 202, 5000, 4, 100);
     ArrayList<Pokemon> pokemons = new ArrayList<Pokemon>();
 
-    @BeforeEach
+    /*@BeforeEach
     public void setUp() {
         when(iPokedex.addPokemon(any(Pokemon.class))).then(new Answer<Integer>() {
             @Override
@@ -55,7 +56,7 @@ public class IPokedexTest extends TestCase {
                 return pokemons;
             }
         });
-    }
+    }*/
 
 
     @Test
@@ -164,22 +165,20 @@ public class IPokedexTest extends TestCase {
     }
 
     @Test
-    public void testPokedexException() {
-        iPokedex.addPokemon(bulbizarre);
-        iPokedex.addPokemon(bulbizarre);
-
+    public void testPokedexExceptionMoins1() {
         try {
-            when(iPokedex.getPokemon(1)).thenThrow(new PokedexException("yolo"));
+            assertEquals("Pokemon non découvert", iPokedex.getPokemon(-1));
         } catch (PokedexException e) {
             e.printStackTrace();
         }
+    }
 
-        assertThrows(PokedexException.class, () -> {
-            iPokedex.getPokemon(1);
-        });
-
+    @Test
+    public void testPokedexException2() {
+        iPokedex.addPokemon(bulbizarre);
+        iPokedex.addPokemon(bulbizarre);
         try {
-            assertEquals("yolo", iPokedex.getPokemon(1));
+            assertEquals("Pokemon non découvert", iPokedex.getPokemon(2));
         } catch (PokedexException e) {
             e.printStackTrace();
         }

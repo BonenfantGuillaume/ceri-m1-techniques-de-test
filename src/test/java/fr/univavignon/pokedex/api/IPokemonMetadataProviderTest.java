@@ -8,10 +8,10 @@ import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
 public class IPokemonMetadataProviderTest extends TestCase {
+    //IPokemonMetadataProvider iPokemonMetadataProvider = mock(IPokemonMetadataProvider.class);
+    IPokemonMetadataProvider iPokemonMetadataProvider = new PokemonMetadataProvider();
 
-    IPokemonMetadataProvider iPokemonMetadataProvider = mock(IPokemonMetadataProvider.class);
-
-    @BeforeEach
+    /*@BeforeEach
     public void setUp() {
         try {
             when(iPokemonMetadataProvider.getPokemonMetadata(0)).thenReturn(new PokemonMetadata(0, "Bulbizarre", 126, 126, 90));
@@ -21,7 +21,7 @@ public class IPokemonMetadataProviderTest extends TestCase {
         {
             e.printStackTrace();
         }
-    }
+    }*/
 
     @Test
     public void testGetIndexBulbizarre() {
