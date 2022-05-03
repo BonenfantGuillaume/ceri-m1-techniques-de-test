@@ -174,7 +174,7 @@ public class IPokedexTest extends TestCase {
             e.printStackTrace();
         }
 
-        PokedexException pokedexException = assertThrows(PokedexException.class, () -> {
+        assertThrows(PokedexException.class, () -> {
             iPokedex.getPokemon(1);
         });
 

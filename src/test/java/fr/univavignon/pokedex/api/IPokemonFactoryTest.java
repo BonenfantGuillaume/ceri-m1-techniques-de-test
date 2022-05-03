@@ -9,15 +9,16 @@ import static org.mockito.Mockito.when;
 
 public class IPokemonFactoryTest extends TestCase {
 
-    IPokemonFactory iPokemonFactory = mock(IPokemonFactory.class);
+    //IPokemonFactory iPokemonFactory = mock(IPokemonFactory.class);
+    IPokemonFactory iPokemonFactory = new PokemonFactory();
     Pokemon bulbizarre = new Pokemon(0, "Bulbizarre", 126, 126, 90, 613, 64, 4000, 4, 56);
     Pokemon Aquali = new Pokemon(133, "Aquali", 186, 168, 260, 2729, 202, 5000, 4, 100);
 
-    @Before
+    /*@Before
     public void setUp() {
         when(iPokemonFactory.createPokemon(0, 613, 64, 4000, 4)).thenReturn(bulbizarre);
         when(iPokemonFactory.createPokemon(133, 2729, 202, 5000, 4)).thenReturn(Aquali);
-    }
+    }*/
 
 
     @Test
@@ -47,7 +48,7 @@ public class IPokemonFactoryTest extends TestCase {
     @Test
     public void testGetIvBulbizarre() {
         Pokemon pokemon = iPokemonFactory.createPokemon(0, 613, 64, 4000, 4);
-        assertEquals((double) 56, pokemon.getIv());
+        assertTrue(pokemon.getIv() >= 0 || pokemon.getIv() <= 100);
     }
 
     @Test
@@ -77,6 +78,6 @@ public class IPokemonFactoryTest extends TestCase {
     @Test
     public void testGetIvAquali() {
         Pokemon pokemon = iPokemonFactory.createPokemon(133, 2729, 202, 5000, 4);
-        assertEquals((double) 100, pokemon.getIv());
+        assertTrue(pokemon.getIv() >= 0 || pokemon.getIv() <= 100);
     }
 }
