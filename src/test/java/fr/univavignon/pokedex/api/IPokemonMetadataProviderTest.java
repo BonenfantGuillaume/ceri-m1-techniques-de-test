@@ -126,7 +126,7 @@ public class IPokemonMetadataProviderTest extends TestCase {
     @Test
     public void testGetPokemonMetadataException() {
         try {
-            assertEquals("Pokemon non découvert", iPokemonMetadataProvider.getPokemonMetadata(3));
+            assertEquals("Pokemon non decouvert", iPokemonMetadataProvider.getPokemonMetadata(3));
         } catch (PokedexException e) {
             e.printStackTrace();
         }

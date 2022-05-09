@@ -7,3 +7,4 @@ Groupe : ILSEN-CLA-GR2
 
 [![codecov](https://codecov.io/gh/BonenfantGuillaume/ceri-m1-techniques-de-test/branch/master/graph/badge.svg?token=A7PDUBFMVY)](https://codecov.io/gh/BonenfantGuillaume/ceri-m1-techniques-de-test)
 
+![Checkstyle](target/site/badges/checkstyle-result.svg)

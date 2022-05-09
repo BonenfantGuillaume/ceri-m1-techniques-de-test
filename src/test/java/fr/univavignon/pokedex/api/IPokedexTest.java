@@ -167,7 +167,7 @@ public class IPokedexTest extends TestCase {
     @Test
     public void testPokedexExceptionMoins1() {
         try {
-            assertEquals("Pokemon non découvert", iPokedex.getPokemon(-1));
+            assertEquals("Pokemon non decouvert", iPokedex.getPokemon(-1));
         } catch (PokedexException e) {
             e.printStackTrace();
         }
@@ -178,7 +178,7 @@ public class IPokedexTest extends TestCase {
         iPokedex.addPokemon(bulbizarre);
         iPokedex.addPokemon(bulbizarre);
         try {
-            assertEquals("Pokemon non découvert", iPokedex.getPokemon(2));
+            assertEquals("Pokemon non decouvert", iPokedex.getPokemon(2));
         } catch (PokedexException e) {
             e.printStackTrace();
         }

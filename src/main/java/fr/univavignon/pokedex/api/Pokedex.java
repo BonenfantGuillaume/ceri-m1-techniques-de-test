@@ -33,7 +33,7 @@ public class Pokedex implements IPokedex{
         }
         catch (IndexOutOfBoundsException e)
         {
-            throw new PokedexException("Pokémon non découvert");
+            throw new PokedexException("Pokemon non decouvert");
         }
     }
 

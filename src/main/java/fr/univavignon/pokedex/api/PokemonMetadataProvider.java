@@ -16,7 +16,7 @@ public class PokemonMetadataProvider implements IPokemonMetadataProvider{
     public PokemonMetadata getPokemonMetadata(int index) throws PokedexException {
         if (pokemonsMetadata.get(index) == null)
         {
-            throw new PokedexException("Pokemon non découvert");
+            throw new PokedexException("Pokemon non decouvert");
         }
         return pokemonsMetadata.get(index);
     }
