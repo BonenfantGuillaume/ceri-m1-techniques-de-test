@@ -1,0 +1,1 @@
+cmd.exe /X /C "C:\Users\bonen\.jdks\azul-15.0.5\bin\javadoc.exe @options @packages @argfile"
