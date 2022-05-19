@@ -15,7 +15,8 @@ public class IPokedexFactoryTest extends TestCase {
     IPokedex iPokedex = mock(IPokedex.class);*/
     IPokedexFactory iPokedexFactory = new PokedexFactory();
     IPokemonMetadataProvider iPokemonMetadataProvider = new PokemonMetadataProvider();
-    IPokemonFactory iPokemonFactory = new PokemonFactory(iPokemonMetadataProvider);
+    //IPokemonFactory iPokemonFactory = new PokemonFactory(iPokemonMetadataProvider);
+    IPokemonFactory iPokemonFactory = new RocketPokemonFactory();
     IPokedex iPokedex = new Pokedex(iPokemonFactory, iPokemonMetadataProvider);
     Pokemon bulbizarre = new Pokemon(0, "Bulbizarre", 126, 126, 90, 613, 64, 4000, 4, 56);
 

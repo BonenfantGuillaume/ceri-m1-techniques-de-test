@@ -16,7 +16,8 @@ public class IPokemonTrainerFactoryTest extends TestCase {
  */
     IPokemonTrainerFactory iPokemonTrainerFactory = new PokemonTrainerFactory();
     PokemonMetadataProvider pokemonMetadataProvider = new PokemonMetadataProvider();
-    PokemonFactory pokemonFactory = new PokemonFactory(pokemonMetadataProvider);
+    //PokemonFactory pokemonFactory = new PokemonFactory(pokemonMetadataProvider);
+    IPokemonFactory pokemonFactory = new RocketPokemonFactory();
     IPokedex iPokedex = new Pokedex(pokemonFactory, pokemonMetadataProvider);
     PokemonTrainer pokemonTrainer = new PokemonTrainer(trainerName, Team.MYSTIC, iPokedex);
     IPokedexFactory iPokedexFactory = new PokedexFactory();

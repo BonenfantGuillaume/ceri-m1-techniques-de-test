@@ -10,7 +10,8 @@ import static org.mockito.Mockito.when;
 public class IPokemonFactoryTest extends TestCase {
 
     //IPokemonFactory iPokemonFactory = mock(IPokemonFactory.class);
-    IPokemonFactory iPokemonFactory = new PokemonFactory(new PokemonMetadataProvider());
+    //IPokemonFactory iPokemonFactory = new PokemonFactory(new PokemonMetadataProvider());
+    IPokemonFactory iPokemonFactory = new RocketPokemonFactory();
     Pokemon bulbizarre = new Pokemon(0, "Bulbizarre", 126, 126, 90, 613, 64, 4000, 4, 56);
     Pokemon aquali = new Pokemon(133, "Aquali", 186, 168, 260, 2729, 202, 5000, 4, 100);
 
@@ -48,7 +49,7 @@ public class IPokemonFactoryTest extends TestCase {
     @Test
     public void testGetIvBulbizarre() {
         Pokemon pokemon = iPokemonFactory.createPokemon(0, 613, 64, 4000, 4);
-        assertTrue(pokemon.getIv() >= 0 || pokemon.getIv() <= 100);
+        assertTrue(pokemon.getIv() >= 0 && pokemon.getIv() <= 100);
     }
 
     @Test
@@ -78,31 +79,31 @@ public class IPokemonFactoryTest extends TestCase {
     @Test
     public void testGetIvAquali() {
         Pokemon pokemon = iPokemonFactory.createPokemon(133, 2729, 202, 5000, 4);
-        assertTrue(pokemon.getIv() >= 0 || pokemon.getIv() <= 100);
+        assertTrue(pokemon.getIv() >= 0 && pokemon.getIv() <= 100);
     }
 
     @Test
     public void testGetAttackBulbizarre() {
-        Pokemon pokemon = iPokemonFactory.createPokemon(133, 2729, 202, 5000, 4);
-        assertTrue(pokemon.getAttack() >= aquali.getAttack() || pokemon.getAttack() <= aquali.getAttack() + 15);
+        Pokemon pokemon = iPokemonFactory.createPokemon(0, 2729, 202, 5000, 4);
+        assertTrue(pokemon.getAttack() >= bulbizarre.getAttack() && pokemon.getAttack() <= bulbizarre.getAttack() + 15);
     }
 
     @Test
     public void testGetDefenseBulbizarre() {
-        Pokemon pokemon = iPokemonFactory.createPokemon(133, 2729, 202, 5000, 4);
-        assertTrue(pokemon.getDefense() >= aquali.getDefense() || pokemon.getDefense() <= aquali.getDefense() + 15);
+        Pokemon pokemon = iPokemonFactory.createPokemon(0, 2729, 202, 5000, 4);
+        assertTrue(pokemon.getDefense() >= bulbizarre.getDefense() && pokemon.getDefense() <= bulbizarre.getDefense() + 15);
     }
 
     @Test
     public void testGetStaminaBulbizarre() {
-        Pokemon pokemon = iPokemonFactory.createPokemon(133, 2729, 202, 5000, 4);
-        assertTrue(pokemon.getStamina() >= aquali.getStamina() || pokemon.getStamina() <= aquali.getStamina() + 15);
+        Pokemon pokemon = iPokemonFactory.createPokemon(0, 2729, 202, 5000, 4);
+        assertTrue(pokemon.getStamina() >= bulbizarre.getStamina() && pokemon.getStamina() <= bulbizarre.getStamina() + 15);
     }
 
     @Test
     public void testConstructor() {
         PokemonMetadataProvider pokemonMetadataProvider = new PokemonMetadataProvider();
-        PokemonFactory pokemonFactory = new PokemonFactory(pokemonMetadataProvider);
+        IPokemonFactory pokemonFactory = new RocketPokemonFactory();
         Pokemon pokemon = pokemonFactory.createPokemon(133, 2729, 202, 5000, 4);
         assertEquals(aquali.getName(), pokemon.getName());
     }

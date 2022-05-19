@@ -17,7 +17,8 @@ import static org.mockito.Mockito.when;
 
 public class IPokedexTest extends TestCase {
     //IPokedex iPokedex = mock(IPokedex.class);
-    IPokedex iPokedex = new Pokedex(new PokemonFactory(new PokemonMetadataProvider()), new PokemonMetadataProvider());
+    //IPokedex iPokedex = new Pokedex(new PokemonFactory(new PokemonMetadataProvider()), new PokemonMetadataProvider());
+    IPokedex iPokedex = new Pokedex(new RocketPokemonFactory(), new PokemonMetadataProvider());
     Pokemon bulbizarre = new Pokemon(0, "Bulbizarre", 126, 126, 90, 613, 64, 4000, 4, 56);
     Pokemon aquali = new Pokemon(133, "Aquali", 186, 168, 260, 2729, 202, 5000, 4, 100);
     //ArrayList<Pokemon> pokemons = new ArrayList<Pokemon>();
